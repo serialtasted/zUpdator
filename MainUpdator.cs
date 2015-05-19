@@ -14,6 +14,7 @@ namespace zUpdator
         private bool isActive = true;
 
         private string filename = "";
+        private string aux_newVersion = "";
         WebClient client_update = new WebClient();
         Uri download_url;
 
@@ -24,8 +25,6 @@ namespace zUpdator
 
             client_update.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_update_DownloadProgressChanged);
             client_update.DownloadFileCompleted += new AsyncCompletedEventHandler(client_update_DownloadFileCompleted);
-
-            download_url = new Uri("https://dl.dropbox.com/u/3609589/spNLauncher/Releases/spNLauncher_Arma3.exe");
 
             client_update.DownloadFileAsync(download_url, Application.StartupPath + "\\" + filename);
         }
@@ -38,6 +37,13 @@ namespace zUpdator
             txt_curversion.Text = curVersion;
             txt_latestversion.Text = newVersion;
             filename = "spNLauncher_Arma3.exe";
+
+            if (newVersion.Contains("(Beta Release)"))
+                aux_newVersion = newVersion.Replace(" (Beta Release)", "");
+            else if (newVersion.Contains("(Alpha Release)"))
+                aux_newVersion = newVersion.Replace(" (Alpha Release)", "");
+
+            download_url = new Uri("https://github.com/serialtasted/spNLauncher/releases/download/" + aux_newVersion + "/spNLauncher_Arma3.exe");
 
             Execute();
         }

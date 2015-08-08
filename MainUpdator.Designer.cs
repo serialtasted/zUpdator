@@ -38,6 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.sysbtn_close = new System.Windows.Forms.PictureBox();
+            this.txt_curFile = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sysbtn_close)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = global::zUpdator.Properties.Resources.bg_bottom;
+            this.panel1.Controls.Add(this.txt_curFile);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -92,7 +94,7 @@
             this.txt_latestversion.BackColor = System.Drawing.Color.Transparent;
             this.txt_latestversion.Location = new System.Drawing.Point(124, 82);
             this.txt_latestversion.Name = "txt_latestversion";
-            this.txt_latestversion.Size = new System.Drawing.Size(106, 13);
+            this.txt_latestversion.Size = new System.Drawing.Size(105, 13);
             this.txt_latestversion.TabIndex = 19;
             this.txt_latestversion.Text = "%Remote Version%";
             // 
@@ -102,7 +104,7 @@
             this.txt_curversion.BackColor = System.Drawing.Color.Transparent;
             this.txt_curversion.Location = new System.Drawing.Point(124, 52);
             this.txt_curversion.Name = "txt_curversion";
-            this.txt_curversion.Size = new System.Drawing.Size(111, 13);
+            this.txt_curversion.Size = new System.Drawing.Size(110, 13);
             this.txt_curversion.TabIndex = 18;
             this.txt_curversion.Text = "%Installed Version%";
             // 
@@ -142,6 +144,17 @@
             this.sysbtn_close.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sysbtn_close_MouseDown);
             this.sysbtn_close.MouseEnter += new System.EventHandler(this.sysbtn_close_MouseEnter);
             this.sysbtn_close.MouseLeave += new System.EventHandler(this.sysbtn_close_MouseLeave);
+            // 
+            // txt_curFile
+            // 
+            this.txt_curFile.AutoSize = true;
+            this.txt_curFile.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.txt_curFile.ForeColor = System.Drawing.Color.DarkGray;
+            this.txt_curFile.Location = new System.Drawing.Point(15, 74);
+            this.txt_curFile.MinimumSize = new System.Drawing.Size(250, 0);
+            this.txt_curFile.Name = "txt_curFile";
+            this.txt_curFile.Size = new System.Drawing.Size(250, 12);
+            this.txt_curFile.TabIndex = 9;
             // 
             // MainUpdator
             // 
@@ -186,5 +199,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox sysbtn_close;
+        private System.Windows.Forms.Label txt_curFile;
     }
 }

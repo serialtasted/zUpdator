@@ -38,12 +38,10 @@ namespace zUpdator
             txt_latestversion.Text = newVersion;
             filename = "spNLauncher_Arma3.exe";
 
-            if (newVersion.Contains("(Beta Release)"))
-                aux_newVersion = newVersion.Replace(" (Beta Release)", "");
-            else if (newVersion.Contains("(Alpha Release)"))
-                aux_newVersion = newVersion.Replace(" (Alpha Release)", "");
+            string[] splitted_line = newVersion.Split(' ');
 
-            download_url = new Uri("https://github.com/serialtasted/spNLauncher/releases/download/" + aux_newVersion + "/spNLauncher_Arma3.exe");
+            download_url = new Uri("https://github.com/serialtasted/spNLauncher/releases/download/" + splitted_line[0] + "/spNLauncher_Arma3.exe");
+            txt_curFile.Text = "Downloading from: " + download_url;
 
             Execute();
         }

@@ -69,6 +69,7 @@ namespace zUpdator
                     process.StartInfo = fass;
                     process.Start();
 
+                    Thread.Sleep(500);
                     this.Close();
                 }
                 catch (Exception ex)

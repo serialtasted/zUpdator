@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUpdator));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_curFile = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.sysbtn_close = new System.Windows.Forms.PictureBox();
-            this.txt_curFile = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sysbtn_close)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 102);
             this.panel1.TabIndex = 2;
+            // 
+            // txt_curFile
+            // 
+            this.txt_curFile.AutoSize = true;
+            this.txt_curFile.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.txt_curFile.ForeColor = System.Drawing.Color.DarkGray;
+            this.txt_curFile.Location = new System.Drawing.Point(15, 74);
+            this.txt_curFile.MinimumSize = new System.Drawing.Size(250, 0);
+            this.txt_curFile.Name = "txt_curFile";
+            this.txt_curFile.Size = new System.Drawing.Size(250, 12);
+            this.txt_curFile.TabIndex = 9;
             // 
             // progressBar1
             // 
@@ -84,9 +95,9 @@
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Location = new System.Drawing.Point(6, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 13);
+            this.label4.Size = new System.Drawing.Size(162, 13);
             this.label4.TabIndex = 15;
-            this.label4.Text = "spN Launcher - Updator";
+            this.label4.Text = "PTrangers Launcher - Updator";
             // 
             // txt_latestversion
             // 
@@ -144,17 +155,6 @@
             this.sysbtn_close.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sysbtn_close_MouseDown);
             this.sysbtn_close.MouseEnter += new System.EventHandler(this.sysbtn_close_MouseEnter);
             this.sysbtn_close.MouseLeave += new System.EventHandler(this.sysbtn_close_MouseLeave);
-            // 
-            // txt_curFile
-            // 
-            this.txt_curFile.AutoSize = true;
-            this.txt_curFile.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.txt_curFile.ForeColor = System.Drawing.Color.DarkGray;
-            this.txt_curFile.Location = new System.Drawing.Point(15, 74);
-            this.txt_curFile.MinimumSize = new System.Drawing.Size(250, 0);
-            this.txt_curFile.Name = "txt_curFile";
-            this.txt_curFile.Size = new System.Drawing.Size(250, 12);
-            this.txt_curFile.TabIndex = 9;
             // 
             // MainUpdator
             // 

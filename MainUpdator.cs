@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Threading;
 using System.Windows.Forms;
@@ -32,15 +33,19 @@ namespace zUpdator
         public MainUpdator(string curVersion, string newVersion)
         {
             InitializeComponent();
-            KillLauncher("spNLauncher_Arma3");
-            
+            KillLauncher("arma3Launcher");
+
+            KillLauncher("spNLauncher_Arma3"); // erease old project for legacy
+            if (File.Exists("spNLauncher_Arma3.exe"))
+                File.Delete("spNLauncher_Arma3.exe");
+
             txt_curversion.Text = curVersion;
             txt_latestversion.Text = newVersion;
-            filename = "spNLauncher_Arma3.exe";
+            filename = "arma3Launcher.exe";
 
             string[] splitted_line = newVersion.Split(' ');
 
-            download_url = new Uri("https://github.com/serialtasted/spNLauncher/releases/download/" + splitted_line[0] + "/spNLauncher_Arma3.exe");
+            download_url = new Uri("https://github.com/serialtasted/arma3Launcher/releases/download/" + splitted_line[0] + "/" + filename);
             txt_curFile.Text = "Downloading from: " + download_url;
 
             Execute();
@@ -88,14 +93,14 @@ namespace zUpdator
 
             while (pname.Length != 0)
             {
-                MessageBox.Show("spN Launcher is running, the updater will now end it.");
+                MessageBox.Show(exeName + " is running, the updater will now end it.");
                 try
                 {
                     pname[0].Kill();
                 }
                 catch
                 {
-                    MessageBox.Show("Could not close spN Launcher automatically. Please close it and then press \"OK\".");
+                    MessageBox.Show("Could not close the launcher automatically. Please close it and then press \"OK\".");
                 }
 
                 Thread.Sleep(500);

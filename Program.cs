@@ -25,7 +25,7 @@ namespace zUpdator
                 }
                 catch (IndexOutOfRangeException iex)
                 {
-                    ArgumentException argex = new ArgumentException("This process belongs to spN Launcher, it cannot be opened alone.", iex);
+                    ArgumentException argex = new ArgumentException("This process belongs to PTr Launcher, it cannot be opened alone.", iex);
                     throw argex;
                 }
 

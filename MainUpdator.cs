@@ -63,6 +63,7 @@ namespace zUpdator
                 try
                 {
                     var fass = new ProcessStartInfo();
+                    fass.WorkingDirectory = Application.StartupPath;
                     fass.FileName = filename;
 
                     var process = new Process();

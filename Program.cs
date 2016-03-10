@@ -29,9 +29,14 @@ namespace zUpdator
                     throw argex;
                 }
 
-                string[] aux_args = args[0].Split('_');
-
-                Application.Run(new MainUpdator(aux_args[0], aux_args[1]));
+                try
+                {
+                    Application.Run(new MainUpdator(args[0], args[1], args[2]));
+                }
+                catch
+                {
+                    Application.Run(new MainUpdator(args[0].Split('_')[0], args[0].Split('_')[1], "arma3Launcher.exe"));
+                }
             }
             catch (Exception ex)
             {

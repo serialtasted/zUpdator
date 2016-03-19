@@ -35,7 +35,8 @@ namespace zUpdator
                 }
                 catch
                 {
-                    Application.Run(new MainUpdator(args[0].Split('_')[0], args[0].Split('_')[1], "arma3Launcher.exe"));
+                    ArgumentException argex = new ArgumentException("The updator could not be initialized.\nPlease update the launcher manually by downloading it from the project's github page. \"github.com/serialtasted/arma3Launcher/releases\"");
+                    throw argex;
                 }
             }
             catch (Exception ex)

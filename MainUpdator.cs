@@ -39,13 +39,11 @@ namespace zUpdator
             if (File.Exists("spNLauncher_Arma3.exe"))
                 File.Delete("spNLauncher_Arma3.exe");
 
-            this.txt_curversion.Text = curVersion;
-            this.txt_latestversion.Text = newVersion;
-            this.filename = filename;
+            this.txt_curversion.Text = curVersion.Split('=')[1];
+            this.txt_latestversion.Text = newVersion.Split('=')[1];
+            this.filename = filename.Split('=')[1];
 
-            string[] splitted_line = newVersion.Split(' ');
-
-            download_url = new Uri("https://github.com/serialtasted/arma3Launcher/releases/download/" + splitted_line[0] + "/arma3Launcher.exe");
+            download_url = new Uri("https://github.com/serialtasted/arma3Launcher/releases/download/" + newVersion.Split('=')[1] + "/arma3Launcher.exe");
             txt_curFile.Text = "Downloading from: " + download_url;
 
             Execute();

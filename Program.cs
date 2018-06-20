@@ -25,13 +25,14 @@ namespace zUpdator
                 }
                 catch (IndexOutOfRangeException iex)
                 {
-                    ArgumentException argex = new ArgumentException("This process belongs to PTr Launcher, it cannot be opened alone.", iex);
+                    ArgumentException argex = new ArgumentException("This process belongs to PTrangers Arma 3 Launcher, it cannot be opened alone.", iex);
                     throw argex;
                 }
 
                 try
                 {
                     Application.Run(new MainUpdator(args[0], args[1], args[2]));
+                    //Application.Run(new MainUpdator("-curversion=1.7", " -newversion=1.7", " -filename=arma3Launcher.exe"));
                 }
                 catch
                 {

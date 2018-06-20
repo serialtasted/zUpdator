@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace zUpdator
@@ -11,64 +12,66 @@ namespace zUpdator
     public partial class MainUpdator : Form
     {
         private bool isUpdating = false;
-
         private bool isActive = true;
-
         private string filename = "";
-        private string aux_newVersion = "";
-        WebClient client_update = new WebClient();
-        Uri download_url;
 
-        void Execute()
+        private async Task taskDelay(int delayMs)
         {
-            isUpdating = true;
-            UseWaitCursor = true;
-
-            client_update.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_update_DownloadProgressChanged);
-            client_update.DownloadFileCompleted += new AsyncCompletedEventHandler(client_update_DownloadFileCompleted);
-
-            client_update.DownloadFileAsync(download_url, Application.StartupPath + "\\" + filename);
+            await Task.Delay(delayMs);
         }
 
         public MainUpdator(string curVersion, string newVersion, string filename)
         {
             InitializeComponent();
+
+            // stop launcher
             KillLauncher("arma3Launcher");
 
-            KillLauncher("spNLauncher_Arma3"); // erease old project for legacy
-            if (File.Exists("spNLauncher_Arma3.exe"))
-                File.Delete("spNLauncher_Arma3.exe");
-
+            // set vars
             this.txt_curversion.Text = curVersion.Split('=')[1];
             this.txt_latestversion.Text = newVersion.Split('=')[1];
             this.filename = filename.Split('=')[1];
+            this.isUpdating = true;
+            this.UseWaitCursor = true;
 
-            download_url = new Uri("https://github.com/serialtasted/arma3Launcher/releases/download/" + newVersion.Split('=')[1] + "/arma3Launcher.exe");
-            txt_curFile.Text = "Downloading from: " + download_url;
+            string url = "https://github.com/serialtasted/arma3Launcher/releases/download/" + this.txt_latestversion.Text + "/arma3Launcher.exe";
 
-            Execute();
+            using (var update_client = new WebClient())
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+                update_client.DownloadProgressChanged += Update_client_DownloadProgressChanged;
+                update_client.DownloadFileCompleted += Update_client_DownloadFileCompleted;
+
+                // start download
+                update_client.DownloadFileAsync(
+                    new Uri(url),
+                    Application.ExecutablePath.Remove(Application.ExecutablePath.Length - Process.GetCurrentProcess().MainModule.ModuleName.Length) + this.filename
+                );
+            }
+
+            txt_curFile.Text = "Downloading from: " + url;
         }
 
-        void client_update_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        private async void Update_client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            if (progressBar1.Value == 100)
+            if (!e.Cancelled)
             {
-                label1.Text = "Download complete";
-                isUpdating = false;
-
-                UseWaitCursor = false;
+                this.label1.Text = "Download complete";
+                this.isUpdating = false;
+                this.UseWaitCursor = false;
 
                 try
                 {
                     var fass = new ProcessStartInfo();
-                    fass.WorkingDirectory = Application.StartupPath;
-                    fass.FileName = filename;
+                    fass.WorkingDirectory = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - Process.GetCurrentProcess().MainModule.ModuleName.Length);
+                    fass.FileName = this.filename;
 
                     var process = new Process();
                     process.StartInfo = fass;
                     process.Start();
 
-                    Thread.Sleep(1500);
+                    await this.taskDelay(1500);
                     this.Close();
                 }
                 catch (Exception ex)
@@ -79,16 +82,15 @@ namespace zUpdator
             }
         }
 
-        void client_update_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        private void Update_client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
-            label1.Text = "Downloading: " + filename;
+            this.progressBar1.Value = e.ProgressPercentage;
+            this.label1.Text = "Downloading: " + this.filename;
         }
 
-        void KillLauncher(string exeName)
+        private static void KillLauncher(string exeName)
         {
             Thread.Sleep(1000);
-
             Process[] pname = Process.GetProcessesByName(exeName);
 
             while (pname.Length != 0)
@@ -110,11 +112,8 @@ namespace zUpdator
 
         private void Updator_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (isUpdating)
-            {
-                MessageBox.Show("One does not simply cancel the update process.", "Unable to cancel", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            if(isUpdating && MessageBox.Show("Do you really want to stop the update process?", "Launcher is updating", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                 e.Cancel = true;
-            }
         }
 
         private void sysbtn_close_Click(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,26 +32,23 @@ namespace zUpdator
             this.txt_curversion.Text = curVersion.Split('=')[1];
             this.txt_latestversion.Text = newVersion.Split('=')[1];
             this.filename = filename.Split('=')[1];
-            this.isUpdating = true;
-            this.UseWaitCursor = true;
 
-            string url = "https://github.com/serialtasted/arma3Launcher/releases/download/" + this.txt_latestversion.Text + "/arma3Launcher.exe";
+            this.txt_releaseInfo.Text = "Getting release description...";
+            this.getGitRealeasInfo();
+        }
 
-            using (var update_client = new WebClient())
+        private async void getGitRealeasInfo()
+        {
+            var client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue("zUpdator"));
+            var releases = await client.Repository.Release.GetAll("serialtasted", "arma3Launcher");
+            foreach (var release in releases)
             {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-
-                update_client.DownloadProgressChanged += Update_client_DownloadProgressChanged;
-                update_client.DownloadFileCompleted += Update_client_DownloadFileCompleted;
-
-                // start download
-                update_client.DownloadFileAsync(
-                    new Uri(url),
-                    Application.ExecutablePath.Remove(Application.ExecutablePath.Length - Process.GetCurrentProcess().MainModule.ModuleName.Length) + this.filename
-                );
+                if (release.TagName == this.txt_latestversion.Text)
+                {
+                    this.txt_releaseInfo.Text = release.Body;
+                    return;
+                }
             }
-
-            txt_curFile.Text = "Downloading from: " + url;
         }
 
         private async void Update_client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
@@ -112,7 +110,9 @@ namespace zUpdator
 
         private void Updator_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(isUpdating && MessageBox.Show("Do you really want to stop the update process?", "Launcher is updating", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+            if (isUpdating)
+                e.Cancel = true;
+            else if (MessageBox.Show("Do you really want to stop the update process?", "Launcher is updating", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.No)
                 e.Cancel = true;
         }
 
@@ -137,6 +137,30 @@ namespace zUpdator
                 sysbtn_close.Image = Properties.Resources.bgclose1;
             else
                 sysbtn_close.Image = Properties.Resources.bgclose3;
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            this.isUpdating = true;
+            string url = "https://github.com/serialtasted/arma3Launcher/releases/download/" + this.txt_latestversion.Text + "/arma3Launcher.exe";
+            this.btn_update.Enabled = false;
+            this.UseWaitCursor = true;
+
+            using (var update_client = new WebClient())
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+                update_client.DownloadProgressChanged += Update_client_DownloadProgressChanged;
+                update_client.DownloadFileCompleted += Update_client_DownloadFileCompleted;
+
+                // start download
+                update_client.DownloadFileAsync(
+                    new Uri(url),
+                    Application.ExecutablePath.Remove(Application.ExecutablePath.Length - Process.GetCurrentProcess().MainModule.ModuleName.Length) + this.filename
+                );
+            }
+
+            txt_curFile.Text = "Downloading from: " + url;
         }
     }
 }

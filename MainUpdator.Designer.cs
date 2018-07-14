@@ -39,18 +39,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.sysbtn_close = new System.Windows.Forms.PictureBox();
+            this.btn_update = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txt_releaseInfo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sysbtn_close)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::zUpdator.Properties.Resources.bg_bottom;
+            this.panel1.Controls.Add(this.btn_update);
             this.panel1.Controls.Add(this.txt_curFile);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 95);
+            this.panel1.Location = new System.Drawing.Point(0, 171);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 84);
             this.panel1.TabIndex = 2;
@@ -70,9 +75,9 @@
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(16, 42);
+            this.progressBar1.Location = new System.Drawing.Point(16, 44);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(499, 20);
+            this.progressBar1.Size = new System.Drawing.Size(362, 20);
             this.progressBar1.TabIndex = 0;
             // 
             // label1
@@ -80,7 +85,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Location = new System.Drawing.Point(13, 22);
             this.label1.MinimumSize = new System.Drawing.Size(220, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 19);
@@ -103,7 +108,7 @@
             // 
             this.txt_latestversion.AutoSize = true;
             this.txt_latestversion.BackColor = System.Drawing.Color.Transparent;
-            this.txt_latestversion.Location = new System.Drawing.Point(124, 68);
+            this.txt_latestversion.Location = new System.Drawing.Point(124, 62);
             this.txt_latestversion.Name = "txt_latestversion";
             this.txt_latestversion.Size = new System.Drawing.Size(105, 13);
             this.txt_latestversion.TabIndex = 19;
@@ -113,7 +118,7 @@
             // 
             this.txt_curversion.AutoSize = true;
             this.txt_curversion.BackColor = System.Drawing.Color.Transparent;
-            this.txt_curversion.Location = new System.Drawing.Point(124, 39);
+            this.txt_curversion.Location = new System.Drawing.Point(125, 40);
             this.txt_curversion.Name = "txt_curversion";
             this.txt_curversion.Size = new System.Drawing.Size(110, 13);
             this.txt_curversion.TabIndex = 18;
@@ -124,7 +129,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 67);
+            this.label6.Location = new System.Drawing.Point(23, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 15);
             this.label6.TabIndex = 17;
@@ -155,13 +160,47 @@
             this.sysbtn_close.MouseEnter += new System.EventHandler(this.sysbtn_close_MouseEnter);
             this.sysbtn_close.MouseLeave += new System.EventHandler(this.sysbtn_close_MouseLeave);
             // 
+            // btn_update
+            // 
+            this.btn_update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_update.Location = new System.Drawing.Point(430, 22);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(82, 42);
+            this.btn_update.TabIndex = 10;
+            this.btn_update.Text = "Update";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.txt_releaseInfo);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Consolas", 8.25F);
+            this.flowLayoutPanel1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 84);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(506, 87);
+            this.flowLayoutPanel1.TabIndex = 114;
+            // 
+            // txt_releaseInfo
+            // 
+            this.txt_releaseInfo.AutoSize = true;
+            this.txt_releaseInfo.Location = new System.Drawing.Point(8, 5);
+            this.txt_releaseInfo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.txt_releaseInfo.Name = "txt_releaseInfo";
+            this.txt_releaseInfo.Size = new System.Drawing.Size(43, 13);
+            this.txt_releaseInfo.TabIndex = 0;
+            this.txt_releaseInfo.Text = "label2";
+            // 
             // MainUpdator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.BackgroundImage = global::zUpdator.Properties.Resources.bg;
-            this.ClientSize = new System.Drawing.Size(530, 179);
+            this.ClientSize = new System.Drawing.Size(530, 255);
             this.ControlBox = false;
             this.Controls.Add(this.sysbtn_close);
             this.Controls.Add(this.txt_latestversion);
@@ -170,6 +209,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -181,6 +221,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sysbtn_close)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +240,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox sysbtn_close;
         private System.Windows.Forms.Label txt_curFile;
+        private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label txt_releaseInfo;
     }
 }

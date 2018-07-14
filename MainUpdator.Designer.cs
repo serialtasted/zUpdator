@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUpdator));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_update = new System.Windows.Forms.Button();
             this.txt_curFile = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,12 +40,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.sysbtn_close = new System.Windows.Forms.PictureBox();
-            this.btn_update = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.txt_releaseInfo = new System.Windows.Forms.Label();
+            this.sysbtn_git = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sysbtn_close)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sysbtn_git)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,6 +61,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 84);
             this.panel1.TabIndex = 2;
+            // 
+            // btn_update
+            // 
+            this.btn_update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_update.Location = new System.Drawing.Point(430, 22);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(82, 42);
+            this.btn_update.TabIndex = 10;
+            this.btn_update.Text = "Update";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // txt_curFile
             // 
@@ -150,26 +163,15 @@
             // 
             this.sysbtn_close.BackColor = System.Drawing.Color.Transparent;
             this.sysbtn_close.Image = global::zUpdator.Properties.Resources.bgclose1;
-            this.sysbtn_close.Location = new System.Drawing.Point(471, 0);
+            this.sysbtn_close.Location = new System.Drawing.Point(497, 6);
             this.sysbtn_close.Name = "sysbtn_close";
-            this.sysbtn_close.Size = new System.Drawing.Size(43, 18);
+            this.sysbtn_close.Size = new System.Drawing.Size(16, 16);
             this.sysbtn_close.TabIndex = 112;
             this.sysbtn_close.TabStop = false;
             this.sysbtn_close.Click += new System.EventHandler(this.sysbtn_close_Click);
             this.sysbtn_close.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sysbtn_close_MouseDown);
             this.sysbtn_close.MouseEnter += new System.EventHandler(this.sysbtn_close_MouseEnter);
             this.sysbtn_close.MouseLeave += new System.EventHandler(this.sysbtn_close_MouseLeave);
-            // 
-            // btn_update
-            // 
-            this.btn_update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_update.Location = new System.Drawing.Point(430, 22);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(82, 42);
-            this.btn_update.TabIndex = 10;
-            this.btn_update.Text = "Update";
-            this.btn_update.UseVisualStyleBackColor = true;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -194,6 +196,20 @@
             this.txt_releaseInfo.TabIndex = 0;
             this.txt_releaseInfo.Text = "label2";
             // 
+            // sysbtn_git
+            // 
+            this.sysbtn_git.BackColor = System.Drawing.Color.Transparent;
+            this.sysbtn_git.Image = global::zUpdator.Properties.Resources.bggit1;
+            this.sysbtn_git.Location = new System.Drawing.Point(476, 6);
+            this.sysbtn_git.Name = "sysbtn_git";
+            this.sysbtn_git.Size = new System.Drawing.Size(16, 16);
+            this.sysbtn_git.TabIndex = 115;
+            this.sysbtn_git.TabStop = false;
+            this.sysbtn_git.Click += new System.EventHandler(this.sysbtn_git_Click);
+            this.sysbtn_git.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sysbtn_git_MouseDown);
+            this.sysbtn_git.MouseEnter += new System.EventHandler(this.sysbtn_git_MouseEnter);
+            this.sysbtn_git.MouseLeave += new System.EventHandler(this.sysbtn_git_MouseLeave);
+            // 
             // MainUpdator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +218,7 @@
             this.BackgroundImage = global::zUpdator.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(530, 255);
             this.ControlBox = false;
+            this.Controls.Add(this.sysbtn_git);
             this.Controls.Add(this.sysbtn_close);
             this.Controls.Add(this.txt_latestversion);
             this.Controls.Add(this.txt_curversion);
@@ -223,6 +240,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sysbtn_close)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sysbtn_git)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +261,6 @@
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label txt_releaseInfo;
+        private System.Windows.Forms.PictureBox sysbtn_git;
     }
 }

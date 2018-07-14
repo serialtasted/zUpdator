@@ -168,6 +168,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bggit1.png" />
+    <None Include="Resources\bggit2.png" />
+    <None Include="Resources\bggit3.png" />
     <Content Include="zUpdator.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

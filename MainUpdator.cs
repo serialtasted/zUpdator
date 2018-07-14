@@ -13,6 +13,7 @@ namespace zUpdator
     public partial class MainUpdator : Form
     {
         private bool isUpdating = false;
+        private bool updated = false;
         private bool isActive = true;
         private string filename = "";
 
@@ -57,6 +58,7 @@ namespace zUpdator
             {
                 this.label1.Text = "Download complete";
                 this.isUpdating = false;
+                this.updated = true;
                 this.UseWaitCursor = false;
 
                 try
@@ -112,7 +114,7 @@ namespace zUpdator
         {
             if (isUpdating)
                 e.Cancel = true;
-            else if (MessageBox.Show("Do you really want to stop the update process?", "Launcher is updating", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.No)
+            else if (!updated && MessageBox.Show("Do you really want to stop the update process?", "Launcher is updating", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.No)
                 e.Cancel = true;
         }
 
@@ -123,7 +125,7 @@ namespace zUpdator
 
         private void sysbtn_close_MouseDown(object sender, MouseEventArgs e)
         {
-            sysbtn_close.Image = Properties.Resources.bgclose4;
+            sysbtn_close.Image = Properties.Resources.bgclose3;
         }
 
         private void sysbtn_close_MouseEnter(object sender, EventArgs e)
@@ -133,10 +135,22 @@ namespace zUpdator
 
         private void sysbtn_close_MouseLeave(object sender, EventArgs e)
         {
-            if (isActive)
-                sysbtn_close.Image = Properties.Resources.bgclose1;
-            else
-                sysbtn_close.Image = Properties.Resources.bgclose3;
+            sysbtn_close.Image = Properties.Resources.bgclose1;
+        }
+
+        private void sysbtn_git_MouseDown(object sender, MouseEventArgs e)
+        {
+            sysbtn_git.Image = Properties.Resources.bggit3;
+        }
+
+        private void sysbtn_git_MouseEnter(object sender, EventArgs e)
+        {
+            sysbtn_git.Image = Properties.Resources.bggit2;
+        }
+
+        private void sysbtn_git_MouseLeave(object sender, EventArgs e)
+        {
+            sysbtn_git.Image = Properties.Resources.bggit1;
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -161,6 +175,11 @@ namespace zUpdator
             }
 
             txt_curFile.Text = "Downloading from: " + url;
+        }
+
+        private void sysbtn_git_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/serialtasted/arma3Launcher/releases");
         }
     }
 }

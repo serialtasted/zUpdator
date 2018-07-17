@@ -14,11 +14,11 @@ namespace zUpdator
         [STAThread]
         static void Main(string[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             try
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-
                 try
                 {
                     if (String.IsNullOrEmpty(args[0])) { }

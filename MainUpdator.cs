@@ -46,7 +46,10 @@ namespace zUpdator
             {
                 if (release.TagName == this.txt_latestversion.Text)
                 {
-                    this.txt_releaseInfo.Text = release.Body;
+                    this.txt_releaseInfo.Text = release.Name + Environment.NewLine;
+                    this.txt_releaseInfo.Text += string.Format("Release date: {0:00}/{1:00}/{2:0000}", release.PublishedAt.Value.Day, release.PublishedAt.Value.Month, release.PublishedAt.Value.Year) + Environment.NewLine;
+                    this.txt_releaseInfo.Text += Environment.NewLine;
+                    this.txt_releaseInfo.Text += release.Body;
                     return;
                 }
             }
@@ -179,7 +182,7 @@ namespace zUpdator
 
         private void sysbtn_git_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/serialtasted/arma3Launcher/releases");
+            Process.Start("https://github.com/serialtasted/arma3Launcher/releases/tag/" + txt_latestversion.Text);
         }
     }
 }

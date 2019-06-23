@@ -44,7 +44,7 @@ namespace zUpdator
                 MessageBox.Show(ex.Message, "zUpdator", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            //Application.Run(new MainUpdator("-curversion=1.7", " -newversion=1.7", " -filename=arma3Launcher.exe"));
+            //Application.Run(new MainUpdator("-curversion=1.7", " -newversion=2.0", " -filename=arma3Launcher.exe"));
         }
     }
 }

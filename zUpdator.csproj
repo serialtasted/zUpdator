@@ -69,9 +69,8 @@
     <ApplicationIcon>zUpdator.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Octokit, Version=0.30.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Octokit.0.30.0\lib\net45\Octokit.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+    <Reference Include="Octokit, Version=0.32.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.32.0\lib\net45\Octokit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -121,27 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dirtbg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\grassbg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\woodtexture1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Minecraft-logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bg_bottom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\spNLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bgclose1.png" />

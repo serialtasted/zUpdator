@@ -63,26 +63,6 @@ namespace zUpdator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg {
-            get {
-                object obj = ResourceManager.GetObject("bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bg_bottom {
-            get {
-                object obj = ResourceManager.GetObject("bg_bottom", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap bgclose1 {
             get {
                 object obj = ResourceManager.GetObject("bgclose1", resourceCulture);
@@ -146,56 +126,6 @@ namespace zUpdator.Properties {
         internal static System.Drawing.Bitmap bggit3 {
             get {
                 object obj = ResourceManager.GetObject("bggit3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dirtbg {
-            get {
-                object obj = ResourceManager.GetObject("dirtbg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap grassbg {
-            get {
-                object obj = ResourceManager.GetObject("grassbg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Minecraft_logo {
-            get {
-                object obj = ResourceManager.GetObject("Minecraft_logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap spNLogo {
-            get {
-                object obj = ResourceManager.GetObject("spNLogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap woodtexture1 {
-            get {
-                object obj = ResourceManager.GetObject("woodtexture1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

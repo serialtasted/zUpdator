@@ -121,35 +121,14 @@
   <data name="bgclose1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bgclose1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dirtbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dirtbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grassbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grassbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="woodtexture1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\woodtexture1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Minecraft_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Minecraft-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bgclose3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bgclose3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spNLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spNLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bgclose2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bgclose2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bgclose4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bgclose4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bggit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bggit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -14,7 +14,6 @@ namespace zUpdator
     {
         private bool isUpdating = false;
         private bool updated = false;
-        private bool isActive = true;
         private string filename = "";
 
         private async Task taskDelay(int delayMs)
@@ -91,9 +90,10 @@ namespace zUpdator
             this.label1.Text = "Downloading: " + this.filename;
         }
 
-        private static void KillLauncher(string exeName)
+        private async void KillLauncher(string exeName)
         {
-            Thread.Sleep(1000);
+            await taskDelay(1500);
+
             Process[] pname = Process.GetProcessesByName(exeName);
 
             while (pname.Length != 0)
@@ -108,7 +108,7 @@ namespace zUpdator
                     MessageBox.Show("Could not close the launcher automatically. Please close it and then press \"OK\".");
                 }
 
-                Thread.Sleep(500);
+                await taskDelay(1500);
                 pname = Process.GetProcessesByName(exeName);
             };
         }
